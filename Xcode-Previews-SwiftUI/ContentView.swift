@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let dishes = Dish.all()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+       
+        List {
+            ForEach(dishes, id: \.id) { dish in
+                DishCell(dish: dish)
+            }
+        }
     }
 }
 
